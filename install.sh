@@ -207,8 +207,8 @@ pre_install_docker_compose(){
     echo
     # Set Setting if the node go downwith panel
     echo "Setting MysqlUser"
-    read -p "(v2ray_myqluser (Default root):" v2ray_myqluser
-    [ -z "${v2ray_myqluser}" ] && v2ray_myqluser="root"
+    read -p "(v2ray_myqluser (Default sspanel):" v2ray_myqluser
+    [ -z "${v2ray_myqluser}" ] && v2ray_myqluser="sspanel"
     echo
     echo "---------------------------"
     echo "v2ray_myqluser = ${v2ray_myqluser}"
@@ -216,8 +216,8 @@ pre_install_docker_compose(){
     echo
     # Set Setting if the node go downwith panel
     echo "Setting MysqlPassword"
-    read -p "(v2ray_mysqlpassword (Default 1):" v2ray_mysqlpassword
-    [ -z "${v2ray_mysqlpassword}" ] && v2ray_mysqlpassword=1
+    read -p "(v2ray_mysqlpassword (Default password):" v2ray_mysqlpassword
+    [ -z "${v2ray_mysqlpassword}" ] && v2ray_mysqlpassword=password
     echo
     echo "---------------------------"
     echo "v2ray_mysqlpassword = ${v2ray_mysqlpassword}"
@@ -225,8 +225,8 @@ pre_install_docker_compose(){
     echo
     # Set Setting if the node go downwith panel
     echo "Setting MysqlDbname"
-    read -p "(v2ray_mysqldbname (Default 1):" v2ray_mysqldbname
-    [ -z "${v2ray_mysqldbname}" ] && v2ray_mysqldbname=1
+    read -p "(v2ray_mysqldbname (Default sspanel):" v2ray_mysqldbname
+    [ -z "${v2ray_mysqldbname}" ] && v2ray_mysqldbname=sspanel
     echo
     echo "---------------------------"
     echo "v2ray_mysqldbname = ${v2ray_mysqldbname}"
@@ -255,8 +255,8 @@ pre_install_docker_compose(){
 
     # Set Setting if the node go downwith panel
     echo "Setting if the node go downwith panel"
-    read -p "(v2ray_downWithPanel (Default 1):" v2ray_downWithPanel
-    [ -z "${v2ray_downWithPanel}" ] && v2ray_downWithPanel=1
+    read -p "(v2ray_downWithPanel (Default 0):" v2ray_downWithPanel
+    [ -z "${v2ray_downWithPanel}" ] && v2ray_downWithPanel=0
     echo
     echo "---------------------------"
     echo "v2ray_downWithPanel = ${v2ray_downWithPanel}"
