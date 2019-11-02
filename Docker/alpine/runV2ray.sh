@@ -24,7 +24,7 @@ if [ ! -z "${speedtest}" ]
 fi
 if [ ! -z "${downWithPanel}" ]
     then
-       sed -i "s/\"downWithPanel\": 6/\"downWithPanel\": ${downWithPanel}/g" "/etc/v2ray/config.json"
+       sed -i "s/\"downWithPanel\": 1/\"downWithPanel\": ${downWithPanel}/g" "/etc/v2ray/config.json"
 fi
 
 if [ ! -z "${MYSQLHOST}" ]
