@@ -1,6 +1,87 @@
 { "dns": {
   "servers": [
-    "1.1.1.1",
+    {
+      "address": "localhost",
+      "port": 53,
+      "domains": [
+        "domain:akadns.net",
+        "domain:akam.net",
+        "domain:akamai.com",
+        "domain:akamai.net",
+        "domain:akamaiedge.net",
+        "domain:akamaihd.net",
+        "domain:akamaistream.net",
+        "domain:akamaitech.net",
+        "domain:akamaitechnologies.com",
+        "domain:akamaitechnologies.fr",
+        "domain:akamaized.net",
+        "domain:edgekey.net",
+        "domain:edgesuite.net",
+        "domain:srip.net",
+        "domain:footprint.net",
+        "domain:level3.net",
+        "domain:llnwd.net",
+        "domain:edgecastcdn.net",
+        "domain:cloudfront.net",
+        "domain:netflix.com",
+        "domain:netflix.net",
+        "domain:nflximg.net",
+        "domain:nflxvideo.net",
+        "domain:nflxso.net",
+        "domain:nflxext.com",
+        "domain:hulu.com",
+        "domain:huluim.com",
+        "domain:hbonow.com",
+        "domain:hbogo.com",
+        "domain:hbo.com",
+        "domain:amazon.com",
+        "domain:amazon.co.uk",
+        "domain:amazonvideo.com",
+        "domain:crackle.com",
+        "domain:pandora.com",
+        "domain:vudu.com",
+        "domain:blinkbox.com",
+        "domain:abc.com",
+        "domain:fox.com",
+        "domain:theplatform.com",
+        "domain:nbc.com",
+        "domain:nbcuni.com",
+        "domain:ip2location.com",
+        "domain:pbs.org",
+        "domain:warnerbros.com",
+        "domain:southpark.cc.com",
+        "domain:cbs.com",
+        "domain:brightcove.com",
+        "domain:cwtv.com",
+        "domain:spike.com",
+        "domain:go.com",
+        "domain:mtv.com",
+        "domain:mtvnservices.com",
+        "domain:playstation.net",
+        "domain:uplynk.com",
+        "domain:maxmind.com",
+        "domain:disney.com",
+        "domain:disneyjunior.com",
+        "domain:xboxlive.com",
+        "domain:lovefilm.com",
+        "domain:turner.com",
+        "domain:amctv.com",
+        "domain:sho.com",
+        "domain:mog.com",
+        "domain:wdtvlive.com",
+        "domain:beinsportsconnect.tv",
+        "domain:beinsportsconnect.net",
+        "domain:fig.bbc.co.uk",
+        "domain:open.live.bbc.co.uk",
+        "domain:sa.bbc.co.uk",
+        "domain:www.bbc.co.uk",
+        "domain:crunchyroll.com",
+        "domain:ifconfig.co",
+        "domain:omtrdc.net",
+        "domain:sling.com",
+        "domain:movetv.com"
+      ]
+    },
     "8.8.8.8"
   ]
 },
@@ -34,12 +115,28 @@
   },
     {
       "protocol": "blackhole",
-      "settings": {},
+      "settings": {"response": {
+        "type": "none"
+      }},
       "tag": "blocked"
+    },{
+      "protocol": "blackhole",
+      "settings": {"response": {
+        "type": "none"
+      }},
+      "tag": "blockedNodeUserLimited"
     }, {
       "protocol": "blackhole",
-      "settings": {},
-      "tag": "blockedapi"
+      "settings": {"response": {
+        "type": "http"
+      }},
+      "tag": "blockedrule"
+    },{
+      "protocol": "blackhole",
+      "settings": {"response": {
+        "type": "http"
+      }},
+      "tag": "blockedip"
     }
   ],
   "policy": {
@@ -61,27 +158,14 @@
   "reverse": {},
   "routing": {
     "rules": [{
-      "ip": [
-        "0.0.0.0/8",
-        "10.0.0.0/8",
-        "100.64.0.0/10",
-        "127.0.0.0/8",
-        "169.254.0.0/16",
-        "172.16.0.0/12",
-        "192.0.0.0/24",
-        "192.0.2.0/24",
-        "192.168.0.0/16",
-        "198.18.0.0/15",
-        "198.51.100.0/24",
-        "203.0.113.0/24",
-        "::1/128",
-        "fc00::/7",
-        "fe80::/10"
-      ],
       "outboundTag": "blocked",
       "protocol": [
         "bittorrent"
       ],
+      "type": "field"
+    },{
+      "outboundTag": "blockedNodeUserLimited",
+      ,
       "type": "field"
     },
       {
@@ -125,6 +209,7 @@
     "go_panel_host": "bwg.com",
     "go_panel_key": "bbbbaaaaaaa",
     "cf_key": "bbbbbbbbbbbbbbbbbb",
-    "cf_email": "rico93@outlxxxxxxxxxx.com"
+    "cf_email": "rico93@outlxxxxxxxxxx.com",
+    "NodeUserLimited": 4
   }
 }

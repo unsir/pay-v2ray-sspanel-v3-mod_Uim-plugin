@@ -121,6 +121,9 @@ while [[ $# > 0 ]];do
         --cfemail)
         CFEMAIL="$2"
         ;;
+        --nodeuserlimited)
+        NODEUSERLIMITED="$2"
+        ;;
         *)
                 # unknown option
         ;;
@@ -164,7 +167,7 @@ downloadV2Ray(){
     rm -rf /tmp/v2ray
     mkdir -p /tmp/v2ray
     colorEcho ${BLUE} "Downloading V2Ray."
-    DOWNLOAD_LINK="https://github.com/v2rayv3/pay-v2ray-sspanel-v3-mod_Uim-plugin/releases/download/${NEW_VER}/v2ray-linux-${VDIS}.zip"
+    DOWNLOAD_LINK="https://github.com/rico93/pay-v2ray-sspanel-v3-mod_Uim-plugin/releases/download/${NEW_VER}/v2ray-linux-${VDIS}.zip"
     curl ${PROXY} -L -H "Cache-Control: no-cache" -o ${ZIPFILE} ${DOWNLOAD_LINK}
     if [ $? != 0 ];then
         colorEcho ${RED} "Failed to download! Please check your network or try again."
@@ -246,7 +249,7 @@ getVersion(){
         if [[ ${CUR_VER} != v* ]]; then
             CUR_VER=v${CUR_VER}
         fi
-        TAG_URL="https://api.github.com/repos/v2rayv3/pay-v2ray-sspanel-v3-mod_Uim-plugin/releases/latest"
+        TAG_URL="https://api.github.com/repos/rico93/pay-v2ray-sspanel-v3-mod_Uim-plugin/releases/latest"
         NEW_VER=`curl ${PROXY} -s ${TAG_URL} --connect-timeout 10| grep 'tag_name' | cut -d\" -f4`
         if [[ ${NEW_VER} != v* ]]; then
           NEW_VER=v${NEW_VER}
@@ -418,6 +421,13 @@ installV2Ray(){
         then
           sed -i "s|\"rico93@outlxxxxxxxxxx.com\"|\"${CFEMAIL}\"|g" "/etc/v2ray/config.json"
             colorEcho ${BLUE} "CFEMAIL:${CFEMAIL}"
+        fi
+
+        if [ ! -z "${NODEUSERLIMITED}" ]
+        then
+                sed -i "s|\"NodeUserLimited\": 4|\"NodeUserLimited\": ${NODEUSERLIMITED}|g" "/etc/v2ray/config.json"
+                colorEcho ${BLUE} "NODEUSERLIMITED:${NODEUSERLIMITED}"
+
         fi
 
     fi

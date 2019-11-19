@@ -75,5 +75,10 @@ then
 fi
 
 
+if [ ! -z "${NodeUserLimited}" ]
+    then
+        sed -i "s/\"NodeUserLimited\": 4/\"NodeUserLimited\": ${NodeUserLimited}/g" "/etc/v2ray/config.json"
+fi
+
 cat /etc/v2ray/config.json
 v2ray -config=/etc/v2ray/config.json
