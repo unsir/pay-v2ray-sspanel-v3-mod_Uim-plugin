@@ -165,7 +165,6 @@
       "type": "field"
     },{
       "outboundTag": "blockedNodeUserLimited",
-      ,
       "type": "field"
     },
       {
