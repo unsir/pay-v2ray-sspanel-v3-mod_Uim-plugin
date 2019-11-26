@@ -1,4 +1,4 @@
-FROM jessestuart/caddy-cloudflare:v0.11.0
+FROM rico93/v2ray_v3:caddy_base
 
 RUN mkdir /srv/www
 COPY index.html /srv/www/index.html

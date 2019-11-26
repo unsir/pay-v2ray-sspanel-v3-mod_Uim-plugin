@@ -8,7 +8,7 @@ RUN curl -L -o /tmp/go.sh https://raw.githubusercontent.com/rico93/v2ray-core/4.
 RUN chmod +x /tmp/go.sh
 RUN /tmp/go.sh --version ${v2ray_version} --panelurl https://google.com --panelkey 55fUxDGFzH3n --nodeid 123456
 
-FROM jessestuart/caddy-cloudflare:v0.11.0
+FROM rico93/v2ray_v3:caddy_base
 
 COPY --from=builder /usr/bin/v2ray/v2ray /usr/bin/v2ray/
 COPY --from=builder /usr/bin/v2ray/v2ctl /usr/bin/v2ray/
