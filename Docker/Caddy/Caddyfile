@@ -12,4 +12,5 @@
     # remove comment if u want to use cloudflare ddns
     # dns cloudflare
   }
+  realip cloudflare
 }
